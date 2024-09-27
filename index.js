@@ -3,6 +3,7 @@ import process from 'node:process'
 import path from 'node:path'
 import express from 'express'
 import expressLayouts from 'express-ejs-layouts';
+import favicon from 'serve-favicon'
 
 import { getDirname } from './utils/dirname.js'
 import { locpath } from './utils/locpath.js'
@@ -24,7 +25,10 @@ app.use(expressLayouts);
 app.set('views', locpath.view(""));
 
 // Serve static files
-app.use(express.static(path.join(__dirname, 'public')))
+app.use('/public', express.static(path.join(__dirname, 'public')))
+
+// Favicon
+app.use(favicon(locpath.public_('favicon.ico')));
 
 // --------
 // Routes
