@@ -1,0 +1,19 @@
+{
+  "name": "profile-matcher",
+  "version": "1.0.0",
+  "description": "A search engine that finds individuals based on descriptive text. Using MongoDB, Docker, and bag of words, it enables users to input attributes and retrieve matching profiles through advanced text analysis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moraxh/ProfileMatcher-Semantic-Search-Engine.git"
+  },
+  "author": "Jorge Mora",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moraxh/ProfileMatcher-Semantic-Search-Engine/issues"
+  },
+  "homepage": "https://github.com/moraxh/ProfileMatcher-Semantic-Search-Engine#readme"
+}
