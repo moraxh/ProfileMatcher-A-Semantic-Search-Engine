@@ -22,7 +22,12 @@
   "homepage": "https://github.com/moraxh/ProfileMatcher-Semantic-Search-Engine#readme",
   "dependencies": {
     "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
     "express": "^4.21.0",
+    "express-ejs-layouts": "^2.5.1",
     "nodemon": "^3.1.7"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
   }
 }

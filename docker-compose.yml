@@ -23,7 +23,7 @@ services:
       - "${DATABASE_PORT}:27017"
     volumes:
       - profile-matcher-mongodb-data:/data/db
-      - ./mongod.conf:/etc/mongod.conf
+      - ./conf/mongod.conf:/etc/mongod.conf
     command: ["mongod", "--config", "/etc/mongod.conf"]
 volumes:
   profile-matcher-mongodb-data:
