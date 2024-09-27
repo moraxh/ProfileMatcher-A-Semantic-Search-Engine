@@ -1,0 +1,38 @@
+<section>
+    <h1 class="h1">
+        <i class="fa-solid fa-user-group me-2"></i>
+        ProfileMatcher
+    </h1>
+    <small class="d-block mx-auto text-secondary max-w-[500px]">
+        A search engine that finds individuals based on descriptive text. Using MongoDB, Docker, and bag of words, it enables users to input attributes and retrieve matching profiles through advanced text analysis
+    </small>
+</section>
+
+<div class="d-flex flex-column justify-content-center gap-4 border shadow rounded-2 p-3 mt-5 max-w-[600px] mx-auto text-center">
+    <p class="h5">
+        Enter your description
+    </p>
+    <textarea id="search" class="form-control resize-none" placeholder="Enter your description here..." rows="6"></textarea>
+    <button id="search-btn" class="btn btn-primary" disabled>
+        <i class="fa-solid fa-magnifying-glass me-2"></i>
+        Search
+    </button>
+</div>
+
+<script>
+    const search = document.getElementById('search');
+    const searchBtn = document.getElementById('search-btn');
+
+    // Disable-enable search button
+    search.addEventListener('input', () => {
+        if (search.value.length > 0) searchBtn.disabled = false;
+        else searchBtn.disabled = true;
+    });
+
+    // Search button
+    searchBtn.addEventListener('click', () => {
+        if (search.value.length == 0) return;
+
+        // TODO: Make a fetch request to the server
+    });
+</script>

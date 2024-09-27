@@ -35,7 +35,7 @@ app.use(favicon(locpath.public_('favicon.ico')));
 // --------
 
 app.get('/', (req, res) => {
-    res.render('pages/index', { title: 'Buscador'})
+    res.render('pages/index', { title: 'ProfileMatcher'})
 });
 
 // 404 page
