@@ -8,20 +8,35 @@
     </small>
 </section>
 
-<div class="d-flex flex-column justify-content-center gap-4 border shadow rounded-2 p-3 mt-5 max-w-[600px] mx-auto text-center">
-    <p class="h5">
-        Enter your description
-    </p>
+<a href="/registers" class="btn-outline-primary btn rounded-pill px-3 my-3">
+    Edit Registers
+    <i class="fa-solid fa-arrow-right ms-2"></i>
+</a>
+
+<div class="d-flex flex-column justify-content-center gap-4 border shadow rounded-2 p-3 max-w-[600px] mx-auto text-center">
+    <p class="h5 m-0">Enter your description</p>
+
     <textarea id="search" class="form-control resize-none" placeholder="Enter your description here..." rows="6"></textarea>
+
     <button id="search-btn" class="btn btn-primary" disabled>
         <i class="fa-solid fa-magnifying-glass me-2"></i>
         Search
     </button>
 </div>
 
+<div id="searchResultsDiv" class="max-w-[800px] mx-auto" hidden>
+    <h2 class="h2 mt-5 mb-3">
+        <i class="fa-solid fa-search me-2"></i>
+        Search Results
+    </h2>
+    <div id="searchResults" class="border rounded shadow p-3 d-flex flex-column gap-3"></div>
+</div>
+
 <script>
     const search = document.getElementById('search');
     const searchBtn = document.getElementById('search-btn');
+    const searchResultsDiv = document.getElementById('searchResultsDiv');
+    const searchResults = document.getElementById('searchResults');
 
     // Disable-enable search button
     search.addEventListener('input', () => {
@@ -33,6 +48,29 @@
     searchBtn.addEventListener('click', () => {
         if (search.value.length == 0) return;
 
-        // TODO: Make a fetch request to the server
+        uri = "/registers/search?" + (new URLSearchParams({ description: search.value })).toString();
+        fetch(uri)
+            .then(response => response.json())
+            .then(data => {
+                searchResultsDiv.hidden = false;
+
+                // Clear the search results div
+                searchResults.innerHTML = '';
+
+                data.forEach((register, index) => {
+                    searchResults.innerHTML += `
+                        <div class="d-flex border rounded shadow-sm gap-2 p-3">
+                            <h2 class="d-flex align-items-center justify-content-center text-6xl fw-bold" style="flex: 1">${index + 1}</h2>
+                            <div class="d-flex flex-column justify-content-center gap-2 align-items-center" style="flex: 3">
+                                <p><strong class="d-block">Nombre: </strong>${register.name}</p>
+                                <p><strong class="d-block">Email: </strong>${register.email}</p>
+                            </div>
+                            <div style="flex: 6">
+                                <p class="text-secondary">${register.description}</p>
+                            </div>
+                        </div>
+                    `
+                });
+            })
     });
 </script>

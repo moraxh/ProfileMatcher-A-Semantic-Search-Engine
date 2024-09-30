@@ -1,0 +1,180 @@
+<h1 class="h1">
+    <i class="fa-solid fa-pen me-2"></i>
+    Edit Registers
+</h1>
+
+<a href="/" class="btn-outline-primary btn rounded-pill px-3 my-3">
+    Search Registers
+    <i class="fa-solid fa-magnifying-glass ms-2"></i>
+</a>
+
+<div class="border rounded-2 shadow p-3 max-w-[1200px] w-fit mx-auto mt-3">
+    <div id="registers" class="d-flex flex-wrap justify-content-center gap-4">
+
+    </div>
+</div>
+
+<!-- Add Btn -->
+<button id="addBtn" data-bs-toggle="modal" data-bs-target="#addEditModal" class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle w-[70px] h-[70px]">
+    <i class="fa-solid fa-plus fa-2xl"></i>
+</button>
+
+<!-- Add-Edit Modal -->
+<div class="modal fade" id="addEditModal" tabindex="-1" aria-labelledby="addEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="addEditModalLabel">Agregar Registro</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-start d-flex flex-column gap-3">
+                <input type="hidden" name="id" id="id">
+                <div>
+                    <label for="name" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" placeholder="Nombre" id="name" required>
+                </div>
+
+                <div>
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" placeholder="Email" id="email" required>
+                </div>
+
+                <div>
+                    <label for="description" class="form-label">Descripción</label>
+                    <textarea name="description" id="description" rows="10" class="form-control resize-none" placeholder="Descripción" required></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                <button id="addEditModalSubmit" type="button" class="btn btn-success" disabled>Agregar Registro</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const registers          = document.getElementById('registers');
+    const addButton          = document.getElementById('addBtn');
+    const addEditModal       = document.getElementById('addEditModal');
+    const addEditModalObject = new bootstrap.Modal(addEditModal);
+    const addEditModalSubmit = document.getElementById('addEditModalSubmit');
+
+    const inputs = document.querySelectorAll("#addEditModal input,textarea");
+
+    addEditModal.addEventListener('show.bs.modal', async () => {
+        // Clear inputs
+        inputs.forEach(input => {
+            input.value = '';
+        })
+
+        addEditModalSubmit.disabled = true;
+    })
+
+    addButton.addEventListener('click', () => {
+        document.getElementById('addEditModalLabel').innerHTML = 'Agregar Registro';
+        addEditModalSubmit.innerHTML = 'Agregar Registro';
+    });
+
+    const editRegister = (id) => {
+        addEditModalObject.show();
+
+        document.getElementById('addEditModalLabel').innerHTML = 'Editar Registro';
+        addEditModalSubmit.innerHTML = 'Editar Registro';
+
+        // Fill with data
+        element = data.find(e => e._id == id);
+
+        document.getElementById('id').value = id;
+        document.getElementById('name').value = element.name;
+        document.getElementById('email').value = element.email;
+        document.getElementById('description').value = element.description;
+    }
+
+    const deleteRegister = (id) => {
+        fetch('/registers/' + id, {
+            method: 'DELETE',
+        }).then(async (res) => {
+            if (res.ok) {
+                loadData()
+            }
+        });
+    }
+
+    const loadData = async () => {
+        // Fetch data
+        res = await fetch("/registers/all");
+        if (!res.ok) return;
+        data = await res.json();
+
+        // Clear previous data
+        registers.innerHTML = '';
+
+        if (data.length === 0) {
+            registers.innerHTML = `
+                <span>
+                    <h5 class="h5 m-0">No hay registros 😟</h5>
+                </span>
+            `;
+        }
+
+        // Fill data
+        data.forEach(register => {
+            registers.innerHTML += `
+                <div class="d-flex flex-column gap-2 justify-content-center align-items-center border rounded-3 shadow-sm p-3 w-[250px]">
+                    <img src="/public/img/profiles/default.webp" class="border rounded-circle shadow-sm w-[100px] h-[100px] d-block">
+                    <span>
+                        <h5 class="h5 m-0">${register.name}</h5>
+                        <small class="text-secondary">${register.email}</small>
+                    </span>
+
+                    <div class="d-flex justify-center align-items-center gap-2">
+                        <!-- Edit -->
+                        <button onclick='editRegister("${register._id}")' class="btn btn-sm btn-outline-primary rounded-circle w-[35px] h-[35px] p-0">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+
+                        <!-- Delete -->
+                        <button onclick='deleteRegister("${register._id}")' class="btn btn-sm btn-outline-danger rounded-circle w-[35px] h-[35px] p-0">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `
+        })
+    }
+
+    loadData();
+
+    inputs.forEach(input => {
+        input.addEventListener('input', () => {
+            if (Array.from(inputs).every(input => input.value)) 
+                addEditModalSubmit.disabled = false;
+            else
+                addEditModalSubmit.disabled = true;
+        });
+    });
+
+    addEditModalSubmit.addEventListener('click', async () => {
+        data = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            description: document.getElementById('description').value,
+        }
+
+        method = document.getElementById('id').value ? 'PATCH' : 'POST';
+        uri = document.getElementById('id').value ? '/registers/' + document.getElementById('id').value : '/registers';
+
+        fetch(uri, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ "data": data }),
+        }).then(async (res) => {
+            if (res.ok) {
+                addEditModalObject.hide()
+                loadData()
+            }
+        });
+    });
+</script>
