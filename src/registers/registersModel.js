@@ -4,7 +4,7 @@ import { ObjectId } from 'mongodb'
 // Database connection
 const client = await connect2DB()
 const db = client.db(process.env.DATABASE_NAME)
-const collection = db.collection('registers')
+const collection = db.collection(process.env.DATABASE_COLLECTION)
 
 export class RegistersModel {
   static async getAll () {

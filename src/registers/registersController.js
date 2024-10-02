@@ -9,6 +9,13 @@ function cosineSimilarity (vecA, vecB) {
   return dotProduct / (magnitudeA * magnitudeB)
 }
 
+function processText (text) {
+  // Replace special characters with spaces
+  text = text.replace(/[^a-zA-Z0-9]/g, ' ')
+  // Delete multiple spaces
+  text = text.replace(/ +(?= )/g, '')
+}
+
 export class RegistersController {
   static async view (req, res) {
     res.render('pages/editRegister', { title: 'Edit Registers' })
@@ -36,14 +43,14 @@ export class RegistersController {
 
   static async search (req, res) {
     const top = 5
-    const { description } = req.query
+    const description = processText(req.query.description)
     const registers = await RegistersModel.getAll()
 
     const _description = description.toLowerCase().split(' ')
 
     // Get the vocabulary
     const descriptions = registers
-      .map(register => (register.description).toLowerCase().split(' ')).flat()
+      .map(register => (processText(register.description)).toLowerCase().split(' ')).flat()
       .concat(_description)
 
     const vocabulary = [...new Set(descriptions)]
@@ -51,7 +58,7 @@ export class RegistersController {
     const descriptionVector = vocabulary.map(word => _description.filter(_word => _word === word).length)
 
     const scores = registers.map(register => {
-      const registerWords = register.description.toLowerCase().split(' ')
+      const registerWords = processText(register.description).toLowerCase().split(' ')
       const registerVector = vocabulary.map(word => registerWords.filter(_word => _word === word).length)
 
       // Calculate the cosine similarity
