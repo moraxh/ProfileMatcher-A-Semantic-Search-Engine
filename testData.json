@@ -1,0 +1,224 @@
+[
+  {
+    "_id": "66fa3a04cd3b429f7afa5768",
+    "name": "Carlos Pérez",
+    "email": "carlos.perez@example.com",
+    "description": "Hombre alto, delgado, con cabello castaño, ojos marrones, con piel clara, barba bien cuidada, vestimenta casual, manos largas, sonrisa amplia, dientes blancos, mandíbula definida, cejas pobladas, expresión seria, piel libre de imperfecciones, con un estilo personal elegante."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5769",
+    "name": "Lucía Martínez",
+    "email": "lucia.martinez@example.com",
+    "description": "Mujer baja, de complexión media, cabello lacio y negro, ojos verdes, piel morena, labios carnosos, rostro ovalado, pómulos marcados, use de maquillaje sencillo, uñas pintadas, estilo moderno, con ropa ajustada, con un porte ágil y juvenil, y una apariencia fresca y radiante."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa576a",
+    "name": "Andrés López",
+    "email": "andres.lopez@example.com",
+    "description": "Hombre de estatura media, musculoso, cabello corto y rizado, ojos azules, piel clara, con una cicatriz en la ceja, pecho ancho, hombros fuertes, piernas tonificadas, vistiendo ropa deportiva, brazos definidos, con un aire atlético y enérgico, con una sonrisa atractiva."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa576b",
+    "name": "María García",
+    "email": "maria.garcia@example.com",
+    "description": "Mujer alta, delgada, con cabello ondulado y rubio, ojos azules, piel clara, cara ovalada, labios delgados, pómulos altos, vestimenta chic, usa gafas de sol grandes, manos delicadas con anillos brillantes, aspecto juvenil, sonrisa agradable, siempre con una actitud positiva."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa576c",
+    "name": "Javier Fernández",
+    "email": "javier.fernandez@example.com",
+    "description": "Hombre robusto, de altura media, con barba espesa, cabello castaño oscuro y ondulado, ojos marrones, piel bronceada, manos grandes, voz profunda, con una vestimenta informal y cómoda, lleva tatuajes visibles en brazos, con una disposición amigable y una naturaleza generosa."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa576d",
+    "name": "Sofía Rodríguez",
+    "email": "sofia.rodriguez@example.com",
+    "description": "Mujer bajita, curvilínea, con cabello lacio y castaño claro, ojos café, piel brillo, con grandes aretes, vestimenta colorida, manos pequeñas y elegantes, rostro simétrico, notable maquillaje de ojos, y una expresión siempre alegre que complementa su aspecto vibrante."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa576e",
+    "name": "Pablo Gómez",
+    "email": "pablo.gomez@example.com",
+    "description": "Hombre alto, delgado, con cabello lacio y negro, ojos verdes oscuros, piel clara, rostro afilado, viste casual, brazos largos, manos ágiles, usa reloj de pulsera, con una cierta elegancia, siempre bien afeitado, aspecto intelectual con un toque de sofisticación."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa576f",
+    "name": "Isabel Torres",
+    "email": "isabel.torres@example.com",
+    "description": "Mujer de estatura media, atlética, con cabello rizado y rubio platinado, ojos azul claro, piel bronceada, labios pintados de rojo, con un porte seguro, dedos largos, usa ropa deportiva, cuerpo tonificado, y una apariencia activa y dinámica que refleja su estilo de vida saludable."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5770",
+    "name": "José Ramírez",
+    "email": "jose.ramirez@example.com",
+    "description": "Hombre robusto, con cabello corto y gris, ojos oscuros, piel morena, rostro ancho, barba canosa, viste uniforme, manos fuertes y trabajadas, expresión seria, aspecto de líder, con una voz que impone respeto y presencia física que no pasa desapercibida."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5771",
+    "name": "Andrea Castro",
+    "email": "andrea.castro@example.com",
+    "description": "Mujer alta, esbelta, con cabello largo y lacio, color negro, ojos marrones oscuros, piel clara, rostro delicado, labios voluminosos y bien definidos, gusta de la moda, manos elegantes, y suele llevar accesorios llamativos que la hacen resaltar en cualquier ocasión."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5772",
+    "name": "Ricardo Méndez",
+    "email": "ricardo.mendez@example.com",
+    "description": "Hombre de estatura media, con cabello espeso y lacio, ojos claros, piel clara, con barba bien recortada, hombros anchos, postura erguida, vestido formal, zapatos pulidos, manos cuidadas, siempre parece cuidar su aspecto, proyectando una imagen profesional y cálida."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5773",
+    "name": "Verónica Huerta",
+    "email": "veronica.huerta@example.com",
+    "description": "Mujer de baja estatura, con un cuerpo curvilíneo, cabello rizado y castaño, ojos oscuros y profundos, piel trigueña, labios carnosos, tiene un estilo único y colorido, usa ropa alegre, y su presencia física siempre irradia energía y entusiasmo."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5774",
+    "name": "Sergio Alcalá",
+    "email": "sergio.alcala@example.com",
+    "description": "Hombre alto y delgado, con cabello lacio y oscuro, ojos marrones, piel clara y suave, rostro angular, barba de tres días, siempre viste de manera relajada, con una actitud despreocupada y una amplia sonrisa que hace que siempre se le recuerde."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5775",
+    "name": "Natalia Ortega",
+    "email": "natalia.ortega@example.com",
+    "description": "Mujer de estatura media, con un físico delgado, cabello largo y rizado, color rojo oscuro, ojos claros, piel pálida, labios finos, elegante en su forma de vestir, destaca por sus accesorios únicos y su esmero en cada detalle de su apariencia."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5776",
+    "name": "Luis Torres",
+    "email": "luis.torres@example.com",
+    "description": "Hombre corpulento, de estatura alta, con cabello castaño claro y ondulado, ojos verdes, piel clara, vistiendo de forma casual pero con estilo, brazos musculosos, su aspecto es el de una persona confiable y segura, con una presencia que impone respeto."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5777",
+    "name": "Claudia Salinas",
+    "email": "claudia.salinas@example.com",
+    "description": "Mujer de estatura baja, de cuerpo esbelto, cabello lacio y negro, ojos marrones, piel clara con algunas pecas, usa pantalones ajustados y tops coloridos, sus manos son delicadas, tiene una sonrisa encantadora, parece irradiar felicidad y alegría con su físico."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5778",
+    "name": "Diego León",
+    "email": "diego.leon@example.com",
+    "description": "Hombre alto, con un cuerpo bien definido, cabello corto y rizado, ojos oscuros, piel morena, lleva una barba bien cuidada, sus brazos son musculosos, viste con ropa ajustada, su presencia física refleja un estilo de vida saludable y activo."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5779",
+    "name": "Gabriela Reyes",
+    "email": "gabriela.reyes@example.com",
+    "description": "Mujer de estatura media, curvilínea, con cabello ondulado y rubio dorado, ojos azules, piel bronceada, lleva ropa veraniega, labios carnosos, usa accesorios llamativos que resaltan su figura y una sonrisa que ilumina su rostro."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa577a",
+    "name": "Samuel Castillo",
+    "email": "samuel.castillo@example.com",
+    "description": "Hombre delgado, de altura media, con cabello corto y lacio, ojos clarísimos, piel clara, usa gafas ópticas, labios delgados, tiene un aspecto intelectual, viste ropa casual, y se nota que cuida su higiene personal con esmero."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa577b",
+    "name": "Beatriz Mendoza",
+    "email": "beatriz.mendoza@example.com",
+    "description": "Mujer alta y atlética, con cabello corto y rizado, castaño oscuro, ojos marrones claros, piel dorada, lleva puesta ropa deportiva, su porte es elegante y deportivo, manos largas y cuidadas, refleja energía y vitalidad en cada paso que da."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa577c",
+    "name": "Fernando Ruiz",
+    "email": "fernando.ruiz@example.com",
+    "description": "Hombre robusto, de altura mayor que promedio, con cabello castaño y lacio, ojos oscuros, piel ligeramente bronceada, viste con ropa casual, brazos fuertes, uso de tatuajes, su apariencia refleja carisma y confianza en sí mismo."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa577d",
+    "name": "Patricia Delgado",
+    "email": "patricia.delgado@example.com",
+    "description": "Mujer de mediana estatura, complexión fina, con cabello largo y liso, color negro azabache, ojos oscuros, piel clara y suave, usa maquillaje sutil, viste de manera formal, su presencia es serena y proyecta confianza y seguridad."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa577e",
+    "name": "César Paredes",
+    "email": "cesar.paredes@example.com",
+    "description": "Hombre alto, de complexión atlética, con cabello corto y lacio, ojos verdes esmeralda, piel clara, lleva puesta una chaqueta, brazos tonificados, su aspecto irradia energía y determinación, siempre con una actitud positiva al abordar cada situación."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa577f",
+    "name": "Valentina Silva",
+    "email": "valentina.silva@example.com",
+    "description": "Mujer de estatura baja, con un físico curvilíneo, cabello rubio y rizado, ojos azules, piel clara con pecas, nariz pequeña, labios voluminosos, siempre lleva un maquillaje suave, y su estilo de vestir es juvenil y alegre, reflejando su personalidad vibrante."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5780",
+    "name": "Marcelo Castro",
+    "email": "marcelo.castro@example.com",
+    "description": "Hombre de estatura media, con una figura atlética, cabello lacio y castaño, ojos oscuros, piel clara, viste ropa deportiva, brazos musculosos, siempre parece estar en movimiento, su porte es enérgico, y su mirada transmite determinación y foco."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5781",
+    "name": "Juliana Salazar",
+    "email": "juliana.salazar@example.com",
+    "description": "Mujer alta, delgada, con cabello largo y ondulado, rubio oscuro, ojos marrones, piel bronceada, lleva consigo una actitud inigualable, usa ropa de moda, y su apariencia fisica es siempre impecable, proyectando confianza y una estética cautivadora."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5782",
+    "name": "Ramón Vargas",
+    "email": "ramon.vargas@example.com",
+    "description": "Hombre alto, corpulento, con cabello oscuro y lacio, ojos azules, piel morena, brazos fuertes, viste casualmente con jeans y camiseta, su presencia es imponente y genera un aura de respeto, siempre bien afeitado y limpio."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5783",
+    "name": "Victoria Cordero",
+    "email": "victoria.cordero@example.com",
+    "description": "Mujer de estatura media, con físico esbelto, cabello largo y lacio, castaño claro, ojos verdes, piel clara, usa una blusa pegada al cuerpo que destaca su silueta, manos cuidadas con uñas pintadas, y un estilo vibrante que llama la atención."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5784",
+    "name": "Esteban Mendoza",
+    "email": "esteban.mendoza@example.com",
+    "description": "Hombre robusto, de talla grande, cabello corto y rizado, ojos marrón oscuros, piel clara, viste camisas de cuadros, manos grandes y fuertes, su postura es erguida y demuestra confianza, con una voz firme que atrae la atención de los demás."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5785",
+    "name": "Gabriela Huerta",
+    "email": "gabriela.huerta@example.com",
+    "description": "Mujer de estatura media, delgada, con cabello lacio y negro, ojos clarísimos, piel clara, labios finos y pintados, usa maquillaje neutral, su estilo de vestir es minimalista y sofisticado, reflejando una imagen fresca y profesional en todo momento."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5786",
+    "name": "Claudio Torres",
+    "email": "claudio.torres@example.com",
+    "description": "Hombre alto, musculoso, con cabello rizado y castaño, ojos oscuros, piel morena, lleva una barba bien cuidada, viste ropa de gimnasio, brazos anchos y definidos, y su presencia irradia confianza, mostrando un físico que habla por sí mismo."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5787",
+    "name": "Natalia Jiménez",
+    "email": "natalia.jimenez@example.com",
+    "description": "Mujer de estatura baja, con un cuerpo curvilíneo, cabello lacio y rubio, ojos marrones, piel suave, labios voluminosos, suele usar blusas ajustadas que realzan su figura y un estilo moderno que captura la atención a su alrededor."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5788",
+    "name": "Fernando Morales",
+    "email": "fernando.morales@example.com",
+    "description": "Hombre de estatura alta, complexión robusta, con cabello castaño claro, ojos verdes, piel clara, lleva una chaqueta de cuero, brazos musculosos, y demuestra siempre una presencia imponente que genera interés y respeto donde se encuentre."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa5789",
+    "name": "Susana Romero",
+    "email": "susana.romero@example.com",
+    "description": "Mujer alta y esbelta, con cabello rizado y rubio, ojos azules, piel bronceada, usa ropa elegantemente casual, labios pintados de rosa, y su elegancia natural y porte sereno la hacen destacar en cualquier lugar."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa578a",
+    "name": "Marco Alvarado",
+    "email": "marco.alvarado@example.com",
+    "description": "Hombre de complexión media, con cabello corto y lacio, ojos marrones, piel morena, lleva barba poblada, usa ropa casual y relajada, su presencia es amigable y refleja una personalidad abierta y jovial."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa578b",
+    "name": "Fernanda Castro",
+    "email": "fernanda.castro@example.com",
+    "description": "Mujer de baja estatura, delgada, cabello rizado y rubio oscuro, ojos grandes y expresivos, piel clara, suele llevar ropa de colores vibrantes, su sonrisa es cálida y amigable, y destaca por su energía positiva y su curiosidad por el mundo."
+  },
+  {
+    "_id": "66fa3a04cd3b429f7afa578c",
+    "name": "Diego Salinas",
+    "email": "diego.salinas@example.com",
+    "description": "Hombre robusto, de talla grande, con cabello oscuro y corto, ojos marrones, piel morena, barba cuidada, viste ropa de trabajo, brazos fuertes y manos grandes, su apariencia refleja determinación y habilidad en su oficio."
+  }
+]
