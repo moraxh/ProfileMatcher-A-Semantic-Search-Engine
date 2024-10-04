@@ -2,6 +2,8 @@ import re
 import unidecode
 import nltk
 import json
+import requests
+import concurrent.futures
 import numpy as np
 from nltk.corpus import stopwords
 from spellchecker import SpellChecker
@@ -77,6 +79,22 @@ def steamText(text):
 
   return " ".join(words)
 
+def lemmatizeFetch(word):
+  response = requests.get(f"https://lenguaje.com/wp-json/lemmatizer/v1/{word}")
+  data = response.json()
+  if len(data) > 0 and type(data) is list:
+    return data[0][0]
+  
+  return word
+
+def lemmatizeText(text):
+  words = text.split(" ")
+
+  with concurrent.futures.ThreadPoolExecutor() as executor:
+    words_lemmatized = executor.map(lemmatizeFetch, words)
+  
+  return " ".join(words_lemmatized)
+
 def processText(text):
   # Lower case
   text = text.lower()
@@ -92,6 +110,9 @@ def processText(text):
 
   # Delete again accented characters
   text = removeSpecialChars(text)
+
+  # Lemmatize text
+  text = lemmatizeText(text)
 
   # Synonyms
   text = replaceWSynonyms(text)
@@ -113,6 +134,8 @@ def search(term, top=5):
       collection.update_one({"_id": document["_id"]}, {"$set": {"description_formatted": description_formatted}})
     else:
       description_formatted = document["description_formatted"]
+    if "_id" in document:
+      del document["_id"]
 
   term_formatted = processText(term)
 
@@ -130,4 +153,4 @@ def search(term, top=5):
   return topScores
 
 if __name__ == '__main__':
-  search("Hombre alto cabello castaño")
+  print(search("Hombre alto cabello castaño"))

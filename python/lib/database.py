@@ -17,7 +17,6 @@ try:
   client.admin.command('ping')
 except Exception as e:
   db_uri = f"mongodb://{env('DATABASE_USER')}:{env('DATABASE_PASSWORD')}@localhost:{env('DATABASE_PORT')}"
-  print(db_uri)
   try:
     client = mongo.MongoClient(db_uri, serverSelectionTimeoutMS=5000)
     client.admin.command('ping')
