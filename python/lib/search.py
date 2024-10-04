@@ -5,10 +5,8 @@ import json
 import numpy as np
 from nltk.corpus import stopwords
 from spellchecker import SpellChecker
-
-import os
-
-print(os.getcwd())
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 if (__name__ == '__main__'):
   from database import documents, collection
@@ -29,11 +27,8 @@ stop_words = set(stopwords.words('spanish'))
 # Create a spell checker for Spanish
 spell = SpellChecker(language='es')
 
-def cosine_similarity(vec1, vec2):
-    dot_product = np.dot(vec1, vec2)
-    norm_vec1 = np.linalg.norm(vec1)
-    norm_vec2 = np.linalg.norm(vec2)
-    return dot_product / (norm_vec1 * norm_vec2)
+# Create a TF-IDF vectorizer
+vectorizer = TfidfVectorizer()
 
 def removeSpecialChars(text):
   # Replace accented characters with their unaccented equivalents
@@ -98,7 +93,6 @@ def getVector(vocabulary, term):
   return [term.count(word) for word in vocabulary]
 
 def search(term, top=5):
-  descriptions = []
   for document in documents:
     # Get the description formatted
     if not "description_formatted" in document:
@@ -108,31 +102,20 @@ def search(term, top=5):
     else:
       description_formatted = document["description_formatted"]
 
-    descriptions += description_formatted.split(" ")
-
-  vocabulary = list(set(descriptions))
   term_formatted = processText(term)
 
-  term_vector = getVector(vocabulary, term_formatted)
+  descriptions_formatted = [document["description_formatted"] for document in documents]
 
-  scores = {}
-  for i, document in enumerate(documents):
-    description = document["description_formatted"]
+  tfidf_matrix = vectorizer.fit_transform(descriptions_formatted)
+  tfidf_search = vectorizer.transform([term_formatted])
 
-    description_vector = getVector(vocabulary, description)
-
-    score = cosine_similarity(term_vector, description_vector)
-
-    if np.isnan(score):
-      score = 1
-
-    scores[i] = {"score": str(score), **document}
+  similarities = cosine_similarity(tfidf_search, tfidf_matrix)
   
-  # Sort scores by score
-  scores = dict(sorted(scores.items(), key=lambda item: item[1]['score'], reverse=True))
+  top_idx = np.argsort(similarities, axis=1)[:,-top:][0]
 
-  # TODO TD-IDF
-
-  topScores = dict(list(scores.items())[:top])
+  topScores = [documents[idx] for idx in top_idx]
 
   return topScores
+
+if __name__ == '__main__':
+  search("Hombre alto cabello castaño")

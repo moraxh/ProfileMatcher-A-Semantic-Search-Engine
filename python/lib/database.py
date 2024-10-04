@@ -11,15 +11,19 @@ load_dotenv("././.env")
 # Connection string
 db_uri = f"mongodb://{env('DATABASE_USER')}:{env('DATABASE_PASSWORD')}@mongo"
 
-print(db_uri)
-
 # Test connection to mongodb
 try:
   client = mongo.MongoClient(db_uri, serverSelectionTimeoutMS=2000)
   client.admin.command('ping')
 except Exception as e:
-  print(f"ERROR: Connecting to the database: {e}") 
-  exit(1)
+  db_uri = f"mongodb://{env('DATABASE_USER')}:{env('DATABASE_PASSWORD')}@localhost:{env('DATABASE_PORT')}"
+  print(db_uri)
+  try:
+    client = mongo.MongoClient(db_uri, serverSelectionTimeoutMS=2000)
+    client.admin.command('ping')
+  except Exception as e:
+    print(f"ERROR: Connecting to the database: {e}") 
+    exit(1)
 
 # Get collection
 db         = client[os.getenv('DATABASE_NAME')]
