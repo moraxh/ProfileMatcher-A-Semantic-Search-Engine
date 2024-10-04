@@ -32,7 +32,6 @@ export class RegistersController {
       return
     }
 
-    console.log(`http://localhost:${process.env.PYTHON_PORT}/search?term=${encodeURIComponent(req.query.description)}&top=5`)
     fetch(`http://localhost:${process.env.PYTHON_PORT}/search?term=${encodeURIComponent(req.query.description)}&top=5`)
       .then(async response => {
         if (!response.ok) {

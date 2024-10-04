@@ -7,6 +7,7 @@ from nltk.corpus import stopwords
 from spellchecker import SpellChecker
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from nltk.stem.snowball import SnowballStemmer
 
 if (__name__ == '__main__'):
   from database import documents, collection
@@ -29,6 +30,9 @@ spell = SpellChecker(language='es')
 
 # Create a TF-IDF vectorizer
 vectorizer = TfidfVectorizer()
+
+# Create a stemmer
+stemmer = SnowballStemmer("spanish")
 
 def removeSpecialChars(text):
   # Replace accented characters with their unaccented equivalents
@@ -68,6 +72,11 @@ def replaceWSynonyms(text):
       
   return " ".join(words)
 
+def steamText(text):
+  words = [stemmer.stem(word) for word in text.split(" ")]
+
+  return " ".join(words)
+
 def processText(text):
   # Lower case
   text = text.lower()
@@ -86,6 +95,9 @@ def processText(text):
 
   # Synonyms
   text = replaceWSynonyms(text)
+
+  # Stem text
+  text = steamText(text)
 
   return text
 

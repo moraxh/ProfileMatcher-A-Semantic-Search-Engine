@@ -60,6 +60,7 @@
     const addEditModalSubmit = document.getElementById('addEditModalSubmit');
 
     const inputs = document.querySelectorAll("#addEditModal input,textarea");
+    const inputs_required = document.querySelectorAll("#addEditModal input:required,textarea:required");
 
     addEditModal.addEventListener('show.bs.modal', async () => {
         // Clear inputs
@@ -145,9 +146,9 @@
 
     loadData();
 
-    inputs.forEach(input => {
+    inputs_required.forEach(input => {
         input.addEventListener('input', () => {
-            if (Array.from(inputs).every(input => input.value)) 
+            if (Array.from(inputs_required).every(input => input.value)) 
                 addEditModalSubmit.disabled = false;
             else
                 addEditModalSubmit.disabled = true;

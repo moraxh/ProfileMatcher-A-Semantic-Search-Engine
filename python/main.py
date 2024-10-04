@@ -21,22 +21,22 @@ app.add_middleware(
 load_dotenv("././.env")
 
 @app.get('/search')
-async def getSearch(request: Request, response: Response, term: str = None):
+async def getSearch(request: Request, response: Response, term: str = None, top: int = 5):
   if (term == None):
     response.status_code = 400
     return {
       "message": "Missing term query parameter"
     }
-  return search(term)
+  return search(term, top)
 
 @app.get('/processText')
-async def getProcessText(request: Request, response: Response, text: str = None, top: int = 5):
+async def getProcessText(request: Request, response: Response, text: str = None):
   if (text == None):
     response.status_code = 400
     return {
       "message": "Missing text query parameter"
     }
-  return processText(text, top)
+  return processText(text)
 
 if __name__ == '__main__':
   uvicorn.run(app, host='0.0.0.0', port=int(os.getenv('PYTHON_PORT')))
