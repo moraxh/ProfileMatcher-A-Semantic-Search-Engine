@@ -1,10 +1,13 @@
 import dotenv from 'dotenv'
 import process from 'node:process'
 import express from 'express'
+import dns from 'node:dns'
 
 import { getDirname } from './utils/dirname.js'
 import { setupMiddleware } from './src/middlewares.js'
 import { setupRoutes } from './src/routes.js'
+
+dns.setDefaultResultOrder('ipv4first')
 
 dotenv.config()
 

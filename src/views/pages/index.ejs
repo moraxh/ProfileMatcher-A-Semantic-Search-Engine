@@ -57,7 +57,7 @@
                 // Clear the search results div
                 searchResults.innerHTML = '';
 
-                data.forEach((register, index) => {
+                Object.values(data).forEach((register, index) => {
                     searchResults.innerHTML += `
                         <div class="d-flex border rounded shadow-sm gap-2 p-3">
                             <h2 class="d-flex align-items-center justify-content-center text-6xl fw-bold" style="flex: 1">${index + 1}</h2>

@@ -5,6 +5,7 @@ services:
       - .:/app
     ports:
       - "${PORT}:5000"
+      - "${PYTHON_PORT}:5001"
     environment:
       - DATABASE_HOST=${DATABASE_HOST}
       - DATABASE_USER=${DATABASE_USER}
@@ -12,7 +13,6 @@ services:
       - DATABASE_NAME=${DATABASE_NAME}
     depends_on:
       - mongo
-    command: npm run dev
   mongo:
     image: mongo
     environment:

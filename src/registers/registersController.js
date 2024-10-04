@@ -1,14 +1,5 @@
 import { RegistersModel } from './registersModel.js'
 
-function cosineSimilarity (vecA, vecB) {
-  const dotProduct = vecA.reduce((sum, value, index) => sum + value * vecB[index], 0)
-  const magnitudeA = Math.sqrt(vecA.reduce((sum, value) => sum + value * value, 0))
-  const magnitudeB = Math.sqrt(vecB.reduce((sum, value) => sum + value * value, 0))
-
-  if (magnitudeA === 0 || magnitudeB === 0) return 0
-  return dotProduct / (magnitudeA * magnitudeB)
-}
-
 export class RegistersController {
   static async view (req, res) {
     res.render('pages/editRegister', { title: 'Edit Registers' })
@@ -35,33 +26,20 @@ export class RegistersController {
   }
 
   static async search (req, res) {
-    const top = 5
     const { description } = req.query
-    const registers = await RegistersModel.getAll()
+    if (description == null) {
+      res.status(400).json({ message: 'Missing description query parameter' })
+      return
+    }
 
-    // Get the vocabulary
-    const descriptions = registers
-      .map(register => (register.description).toLowerCase().split(' ')).flat()
-      .concat(description)
+    console.log(`http://localhost:${process.env.PYTHON_PORT}/search?term=${encodeURIComponent(req.query.description)}&top=5`)
+    fetch(`http://localhost:${process.env.PYTHON_PORT}/search?term=${encodeURIComponent(req.query.description)}&top=5`)
+      .then(async response => {
+        if (!response.ok) {
+          res.status(500).json({ message: 'Error fetching data' })
+        }
 
-    const vocabulary = [...new Set(descriptions)]
-
-    const descriptionVector = vocabulary.map(word => descriptions.filter(_word => _word === word).length)
-
-    const scores = registers.map(register => {
-      const registerWords = register.description.toLowerCase().split(' ')
-      const registerVector = vocabulary.map(word => registerWords.filter(_word => _word === word).length)
-
-      // Calculate the cosine similarity
-      const score = cosineSimilarity(descriptionVector, registerVector)
-
-      return { ...register, score }
-    })
-
-    // Sort scores by score
-    scores.sort((a, b) => b.score - a.score)
-
-    // Send the top 5 results
-    res.json(scores.slice(0, top))
+        res.json(await response.json())
+      })
   }
 }

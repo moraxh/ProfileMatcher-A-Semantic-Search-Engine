@@ -6,13 +6,17 @@ import numpy as np
 from nltk.corpus import stopwords
 from spellchecker import SpellChecker
 
+import os
+
+print(os.getcwd())
+
 if (__name__ == '__main__'):
   from database import documents, collection
 else:
   from lib.database import documents, collection
 
 # Load synonyms
-with open('python\synonyms.json') as f:
+with open('python/synonyms.json') as f:
   synonyms_dict = json.load(f)
 
 # Download nltk data
@@ -119,14 +123,16 @@ def search(term, top=5):
 
     score = cosine_similarity(term_vector, description_vector)
 
-    scores[i] = {"score": float(score), **document}
+    if np.isnan(score):
+      score = 1
+
+    scores[i] = {"score": str(score), **document}
   
   # Sort scores by score
   scores = dict(sorted(scores.items(), key=lambda item: item[1]['score'], reverse=True))
 
-  return dict(list(scores.items())[:top])
-
   # TODO TD-IDF
 
-results = search("alto hombre estatura barba, ropa")
-print(results)
+  topScores = dict(list(scores.items())[:top])
+
+  return topScores

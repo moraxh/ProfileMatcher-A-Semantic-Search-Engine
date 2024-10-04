@@ -9,7 +9,9 @@ env = lambda key: os.getenv(key)
 load_dotenv("././.env")
 
 # Connection string
-db_uri = f"mongodb://{env('DATABASE_USER')}:{env('DATABASE_PASSWORD')}@localhost:{env('DATABASE_PORT')}"
+db_uri = f"mongodb://{env('DATABASE_USER')}:{env('DATABASE_PASSWORD')}@mongo"
+
+print(db_uri)
 
 # Test connection to mongodb
 try:
